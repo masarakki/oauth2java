@@ -10,30 +10,24 @@ public class AccessToken implements Serializable {
   protected String refresh_token;
   protected Integer expires_in;
   protected Date created_at;
-  protected Service service;
 
   public AccessToken() {
     this.created_at = new Date();
   }
 
+  public AccessToken(String access_token) {
+    this(access_token, null);
+  }
+
+  public AccessToken(String access_token, String refresh_token) {
+    this(access_token, refresh_token, null);
+  }
+
   public AccessToken(String access_token, String refresh_token, Integer expires_in) {
-    this(null, access_token, refresh_token, expires_in);
+    this(access_token, refresh_token, expires_in, new Date());
   }
 
-  public AccessToken(Service service, String access_token) {
-    this(service, access_token, null);
-  }
-
-  public AccessToken(Service service, String access_token, String refresh_token) {
-    this(service, access_token, refresh_token, null);
-  }
-
-  public AccessToken(Service service, String access_token, String refresh_token, Integer expires_in) {
-    this(service, access_token, refresh_token, expires_in, new Date());
-  }
-
-  public AccessToken(Service service, String access_token, String refresh_token, Integer expires_in, Date created_at) {
-    this.service = service;
+  public AccessToken(String access_token, String refresh_token, Integer expires_in, Date created_at) {
     this.access_token = access_token;
     this.refresh_token = refresh_token;
     this.expires_in = expires_in;
