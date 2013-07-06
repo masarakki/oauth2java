@@ -1,9 +1,9 @@
-package net.masarakki.simple_oauth2.models;
+package net.masarakki.oauth2java.models;
 
 import static org.junit.Assert.*;
 
 import net.arnx.jsonic.JSON;
-
+import net.masarakki.oauth2java.models.AccessToken;
 import org.json.simple.JSONObject;
 import org.junit.Test;
 
@@ -40,6 +40,7 @@ public class AccessTokenTest {
     assertFalse(access_token.isExpired());
   }
 
+  @SuppressWarnings("unchecked")
   public String buildResponse(boolean has_refresh_token, boolean has_expires_in) {
     JSONObject json = new JSONObject();
     json.put("access_token", AccessTokenTest.accessTokenString);
