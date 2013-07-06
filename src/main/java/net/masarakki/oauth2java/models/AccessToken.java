@@ -1,4 +1,4 @@
-package net.masarakki.simple_oauth2.models;
+package net.masarakki.oauth2java.models;
 
 import java.io.Serializable;
 import java.util.Date;
